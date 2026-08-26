@@ -1,11 +1,24 @@
+# Backend - Django / Python
+
 Backend/venv/
-Backend/__pycache__/
-Backend/*/__pycache__/
+Backend/**pycache**/
+Backend/*/**pycache**/
 Backend/*.pyc
 Backend/*/*.pyc
 Backend/core/.env
 
+# Frontend - React / Vite
 
 Frontend/node_modules/
 Frontend/dist/
 Frontend/.env
+
+# IDE
+
+.vscode/
+.idea/
+
+# OS
+
+.DS_Store
+Thumbs.db
