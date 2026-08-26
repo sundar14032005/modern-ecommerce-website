@@ -6,6 +6,8 @@ Backend/*/**pycache**/
 Backend/*.pyc
 Backend/*/*.pyc
 Backend/core/.env
+Backend/staticfiles/
+Backend/*.env
 
 # Frontend - React / Vite
 
