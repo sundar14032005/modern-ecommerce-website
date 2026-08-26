@@ -1,0 +1,1149 @@
+:root {
+  /* ---- Brand tokens (light) ---- */
+  --ink: #1B1F17;
+  --ink-soft: #5C6357;
+  --ink-faint: #8A9080;
+  --paper: #EEEFE7;
+  --surface: #FFFFFF;
+  --surface-sunken: #E4E7DC;
+  --primary-color: #1F4D3A;
+  --primary-hover: #163829;
+  --primary-soft: #DCE7DE;
+  --accent-color: #B8862E;
+  --accent-soft: #F1E4C4;
+  --sale-color: #A8432B;
+  --sale-soft: #F3E0D8;
+  --line: rgba(27, 31, 23, 0.14);
+  --line-soft: rgba(27, 31, 23, 0.08);
+
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 16px;
+  --border-radius-pill: 50px;
+
+  --shadow-card: 0 1px 2px rgba(27, 31, 23, 0.06),
+    0 8px 24px rgba(27, 31, 23, 0.06);
+
+  --shadow-lift: 0 4px 8px rgba(27, 31, 23, 0.08),
+    0 16px 32px rgba(27, 31, 23, 0.10);
+
+  --transition-fast: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---- Wire Bootstrap's own variables to our tokens ---- */
+  --bs-primary: var(--primary-color);
+  --bs-primary-rgb: 31, 77, 58;
+  --bs-primary-text-emphasis: var(--primary-color);
+  --bs-primary-bg-subtle: var(--primary-soft);
+  --bs-primary-border-subtle: var(--primary-soft);
+  --bs-link-color: var(--primary-color);
+  --bs-link-color-rgb: 31, 77, 58;
+  --bs-link-hover-color: var(--primary-hover);
+  --bs-link-hover-color-rgb: 22, 56, 41;
+  --bs-warning: var(--accent-color);
+  --bs-warning-rgb: 184, 134, 46;
+  --bs-danger: var(--sale-color);
+  --bs-danger-rgb: 168, 67, 43;
+  --bs-body-font-family: var(--font-body);
+  --bs-body-bg: var(--paper);
+  --bs-body-color: var(--ink);
+  --bs-border-color: var(--line);
+  --bs-border-radius: var(--border-radius-md);
+  --bs-border-radius-sm: var(--border-radius-sm);
+  --bs-border-radius-lg: var(--border-radius-lg);
+  --bs-border-radius-pill: var(--border-radius-pill);
+}
+
+
+/* ===================================================================
+   DARK THEME
+   =================================================================== */
+
+[data-bs-theme="dark"] {
+  --ink: #ECEEE4;
+  --ink-soft: #A9AF9E;
+  --ink-faint: #767C6C;
+  --paper: #14170F;
+  --surface: #1B1F16;
+  --surface-sunken: #23281C;
+  --primary-color: #7CC79E;
+  --primary-hover: #96D4B1;
+  --primary-soft: rgba(124, 199, 158, 0.14);
+  --accent-color: #DCB35F;
+  --accent-soft: rgba(220, 179, 95, 0.14);
+  --sale-color: #E28564;
+  --sale-soft: rgba(226, 133, 100, 0.14);
+  --line: rgba(236, 238, 228, 0.14);
+  --line-soft: rgba(236, 238, 228, 0.08);
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3),
+    0 8px 24px rgba(0, 0, 0, 0.28);
+
+  --shadow-lift: 0 4px 8px rgba(0, 0, 0, 0.32),
+    0 16px 32px rgba(0, 0, 0, 0.34);
+
+  --bs-primary: var(--primary-color);
+  --bs-primary-rgb: 124, 199, 158;
+  --bs-link-color: var(--primary-color);
+  --bs-link-color-rgb: 124, 199, 158;
+  --bs-link-hover-color: var(--primary-hover);
+  --bs-link-hover-color-rgb: 150, 212, 177;
+  --bs-warning: var(--accent-color);
+  --bs-warning-rgb: 220, 179, 95;
+  --bs-danger: var(--sale-color);
+  --bs-danger-rgb: 226, 133, 100;
+  --bs-body-bg: var(--paper);
+  --bs-body-color: var(--ink);
+  --bs-border-color: var(--line);
+  --bs-tertiary-bg: var(--surface-sunken);
+  --bs-secondary-bg: var(--surface-sunken);
+}
+
+
+/* ===================================================================
+   GLOBAL
+   =================================================================== */
+
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+::selection {
+  background: var(--primary-soft);
+  color: var(--ink);
+}
+
+
+/* ===================================================================
+   SMALL-CAPS MONO EYEBROW
+   =================================================================== */
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: currentColor;
+  display: inline-block;
+}
+
+.font-mono {
+  font-family: var(--font-mono) !important;
+}
+
+
+/* ===================================================================
+   NAVIGATION
+   =================================================================== */
+
+.navbar-nav .nav-link {
+  color: var(--ink);
+  position: relative;
+  transition: var(--transition-fast);
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--primary-color);
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--primary-color) !important;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 2px;
+  height: 2px;
+  background: var(--primary-color);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.navbar-nav .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+
+/* ===================================================================
+   NAVBAR RESTRUCTURE — Amazon-style mobile header.
+   Row 1: Brand -------- [Theme][Wishlist][Cart]
+   Row 2: Search bar (full width, always visible)
+   Row 3: Home / Marketplace / Vendors — always visible as a tab
+          strip (no hamburger; only 3 items, no need to hide them).
+   Header stays fixed to the top of the viewport at every size.
+   =================================================================== */
+
+/* Desktop (>=992px): restore the exact original single-row order —
+   Brand, Search (centered), Nav Links, Icons. */
+@media (min-width: 992px) {
+  .navbar-actions-group {
+    order: 3;
+  }
+
+  .navbar-search-form {
+    order: 1;
+  }
+
+  .navbar-links-row {
+    order: 2;
+  }
+}
+
+/* Mobile / Tablet (<992px) */
+@media (max-width: 991.98px) {
+  .navbar-restructured {
+    flex-wrap: wrap;
+  }
+
+  .navbar-actions-group {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .navbar-search-form {
+    order: 3;
+    flex: 0 0 100%;
+    max-width: 100% !important;
+    margin-top: 0.75rem;
+  }
+
+  .navbar-links-row {
+    order: 4;
+    flex: 0 0 100%;
+    margin-top: 0.65rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--line);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .navbar-links-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navbar-links-row .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-left: 0 !important;
+    gap: 0.25rem;
+  }
+
+  .navbar-links-row .nav-item {
+    flex: 0 0 auto;
+  }
+
+  .navbar-links-row .nav-link {
+    white-space: nowrap;
+    padding: 0.4rem 0.9rem !important;
+    width: auto !important;
+    border-radius: var(--border-radius-pill);
+  }
+
+  .navbar-links-row .nav-link.active {
+    background: var(--primary-soft);
+    color: var(--primary-color);
+  }
+
+  .navbar-links-row .nav-link.active::after {
+    display: none;
+  }
+}
+
+
+/* ===================================================================
+   HAIRLINE DIVIDERS
+   =================================================================== */
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--line);
+}
+
+.rule-soft {
+  border-top: 1px solid var(--line-soft);
+}
+
+
+/* ===================================================================
+   CARDS
+   =================================================================== */
+
+.glass-card,
+.ledger-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-normal);
+}
+
+.glass-nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+
+/* ===================================================================
+   HOVER INTERACTIONS
+   =================================================================== */
+
+.hover-lift {
+  transition: var(--transition-fast);
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+  border-color: var(--primary-soft);
+}
+
+.hover-scale {
+  transition: var(--transition-fast);
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.hover-opacity-100 {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.product-image-container:hover .hover-opacity-100 {
+  opacity: 1;
+}
+
+.transition-normal {
+  transition: var(--transition-normal);
+}
+
+
+/* ===================================================================
+   PRODUCT IMAGE
+   =================================================================== */
+
+.product-image-container {
+  overflow: hidden;
+  position: relative;
+  background: var(--surface-sunken);
+}
+
+.product-image-container img {
+  transition: transform 0.5s ease;
+}
+
+.product-image-container:hover img {
+  transform: scale(1.06);
+}
+
+
+/* ===================================================================
+   TICKET CARD
+   =================================================================== */
+
+.ticket-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.ticket-divider {
+  position: relative;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    var(--line) 60%,
+    rgba(0, 0, 0, 0) 0%
+  );
+  background-position: top;
+  background-size: 10px 1px;
+  background-repeat: repeat-x;
+  margin: 0;
+}
+
+.ticket-divider::before,
+.ticket-divider::after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.ticket-divider::before {
+  left: -8px;
+}
+
+.ticket-divider::after {
+  right: -8px;
+}
+
+
+/* ===================================================================
+   VENDOR STAMP
+   =================================================================== */
+
+.vendor-stamp {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid var(--primary-color);
+  color: var(--primary-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  transform: rotate(-6deg);
+  background: var(--primary-soft);
+}
+
+
+/* ===================================================================
+   SKELETON SHIMMER
+   =================================================================== */
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-box {
+  background: linear-gradient(
+    90deg,
+    var(--surface-sunken) 25%,
+    var(--surface) 50%,
+    var(--surface-sunken) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--border-radius-sm);
+}
+
+
+/* ===================================================================
+   CUSTOM SCROLLBAR
+   =================================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-sunken);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ink-faint);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-soft);
+}
+
+
+/* ===================================================================
+   FOOTER BENEFIT ROW — explicit row layout so the icon always sits
+   beside the text (never stacks above it), centered as a unit on
+   mobile, left-aligned from md breakpoint up.
+   =================================================================== */
+
+.footer-benefit-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .footer-benefit-item {
+    justify-content: flex-start;
+  }
+}
+
+
+/* ===================================================================
+   BUTTONS
+   =================================================================== */
+
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary-gradient,
+.btn-ink {
+  background: var(--primary-color);
+  color: #fff;
+  border: 1px solid var(--primary-color);
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.btn-primary-gradient:hover,
+.btn-ink:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+  color: #fff;
+  box-shadow: var(--shadow-lift);
+}
+
+.btn-outline-ink {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.btn-outline-ink:hover {
+  background: var(--surface);
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.btn:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.badge-glowing {
+  box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+
+/* ===================================================================
+   COMPATIBILITY UTILITIES
+   =================================================================== */
+
+.bg-primary-light {
+  background-color: var(--primary-soft) !important;
+}
+
+.text-primary-light {
+  color: var(--primary-color) !important;
+}
+
+.bg-gradient-dark {
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+}
+
+
+/* ===================================================================
+   UTILITY CLASSES
+   =================================================================== */
+
+.fw-600 {
+  font-weight: 600 !important;
+}
+
+.text-truncate-2 {
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.max-width-400 {
+  max-width: 400px;
+}
+
+.max-width-600 {
+  max-width: 600px;
+}
+
+.max-width-800 {
+  max-width: 800px;
+}
+
+
+/* ===================================================================
+   LUCIDE ICON HELPERS
+   =================================================================== */
+
+.fill-primary {
+  fill: currentColor;
+}
+
+.fill-warning {
+  fill: currentColor;
+}
+
+.fill-danger {
+  fill: currentColor;
+}
+
+
+/* ===================================================================
+   MEDIUM / DESKTOP UTILITY
+   =================================================================== */
+
+@media (min-width: 768px) {
+  .border-start-md {
+    border-left: 1px solid var(--line);
+  }
+}
+
+
+/* ===================================================================
+   RESPONSIVE DESIGN
+   =================================================================== */
+
+/* ---------------------------------------------------------------
+   TABLET + SMALL DESKTOP
+   --------------------------------------------------------------- */
+
+@media (max-width: 991.98px) {
+
+  .container,
+  .container-fluid {
+    --bs-gutter-x: 1.5rem;
+  }
+
+  h1,
+  .h1 {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+  }
+
+  h2,
+  .h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+  }
+
+  .navbar-nav .nav-link {
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .navbar-nav .nav-link::after {
+    left: 0;
+    right: auto;
+    width: 45px;
+    bottom: 3px;
+  }
+
+  .glass-card,
+  .ledger-card {
+    border-radius: 12px;
+  }
+
+  .max-width-800 {
+    max-width: 100%;
+  }
+}
+
+
+/* ---------------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+
+  /* ---- Typography ---- */
+
+  h1,
+  .h1 {
+    font-size: clamp(2rem, 9vw, 2.75rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+  }
+
+  h2,
+  .h2 {
+    font-size: clamp(1.7rem, 7vw, 2.25rem);
+    line-height: 1.15;
+  }
+
+  h3,
+  .h3 {
+    font-size: 1.45rem;
+    line-height: 1.2;
+  }
+
+  h4,
+  .h4 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    line-height: 1.65;
+  }
+
+
+  /* ---- Eyebrow ---- */
+
+  .eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    gap: 0.4rem;
+  }
+
+  .eyebrow::before {
+    width: 14px;
+  }
+
+
+  /* ---- Navbar ---- */
+
+  .navbar {
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .navbar-brand {
+    max-width: calc(100% - 60px);
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-brand img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .navbar-toggler {
+    padding: 0.45rem 0.6rem;
+    border-radius: 12px;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: 0 0 0 2px var(--primary-soft);
+  }
+
+  .navbar-collapse {
+    padding-top: 0.5rem;
+  }
+
+  .navbar-nav {
+    width: 100%;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .navbar-nav .nav-link {
+    width: 100%;
+    padding: 0.7rem 0.25rem;
+    font-size: 1rem;
+  }
+
+  .navbar-nav .nav-link::after {
+    left: 0;
+    right: auto;
+    width: 55px;
+    height: 2px;
+    bottom: 3px;
+  }
+
+
+  /* ---- Search ---- */
+
+  input[type="search"],
+  .form-control {
+    max-width: 100%;
+  }
+
+  input[type="search"] {
+    font-size: 0.95rem;
+  }
+
+  .input-group {
+    width: 100%;
+  }
+
+
+  /* ---- Buttons ---- */
+
+  .btn {
+    min-height: 44px;
+  }
+
+  .btn-lg {
+    padding: 0.7rem 1.15rem;
+    font-size: 1rem;
+  }
+
+
+  /* ---- Catalog controls row (filter / sort / view switcher) ---- */
+
+  .catalog-controls-row {
+    row-gap: 0.6rem;
+  }
+
+  .catalog-sort-select {
+    max-width: 165px;
+  }
+
+
+  /* ---- Cards ---- */
+
+  .glass-card,
+  .ledger-card {
+    border-radius: var(--border-radius-md);
+  }
+
+  .ticket-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product-image-container {
+    width: 100%;
+  }
+
+
+  /* ---- Vendor stamp ---- */
+
+  .vendor-stamp {
+    width: 28px;
+    height: 28px;
+    font-size: 0.6rem;
+  }
+
+
+  /* ---- Max width utilities ---- */
+
+  .max-width-400,
+  .max-width-600,
+  .max-width-800 {
+    max-width: 100%;
+  }
+
+
+  /* ---- Bootstrap row spacing ---- */
+
+  .row {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+  }
+
+
+  /* ---- Prevent long content from overflowing ---- */
+
+  .text-truncate-2 {
+    max-width: 100%;
+  }
+
+  pre,
+  code {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    max-width: 100%;
+  }
+}
+
+
+/* ---------------------------------------------------------------
+   SMALL MOBILE — 576px and below
+   --------------------------------------------------------------- */
+
+@media (max-width: 575.98px) {
+
+  html {
+    font-size: 14px;
+  }
+
+  .container,
+  .container-fluid {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+
+  /* ---- Header ---- */
+
+  .navbar {
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+
+
+  /* ---- Mobile headings ---- */
+
+  h1,
+  .h1 {
+    font-size: clamp(1.95rem, 10vw, 2.45rem);
+    line-height: 1.06;
+  }
+
+  h2,
+  .h2 {
+    font-size: 1.75rem;
+  }
+
+  h3,
+  .h3 {
+    font-size: 1.35rem;
+  }
+
+
+  /* ---- Eyebrow ---- */
+
+  .eyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+  }
+
+
+  /* ---- Search ---- */
+
+  input[type="search"],
+  .form-control {
+    min-height: 44px;
+    font-size: 0.9rem;
+  }
+
+
+  /* ---- Catalog sort select ---- */
+
+  .catalog-sort-select {
+    max-width: 130px;
+    font-size: 0.8rem;
+  }
+
+
+  /* ---- Product detail quantity/add-to-cart row ---- */
+
+  .product-add-to-cart-btn {
+    flex-basis: 100%;
+    order: 3;
+  }
+
+
+  /* ---- Buttons ---- */
+
+  .btn {
+    width: auto;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .btn-lg {
+    padding: 0.7rem 1rem;
+  }
+
+
+  /* ---- Cards ---- */
+
+  .glass-card,
+  .ledger-card {
+    box-shadow: var(--shadow-card);
+  }
+
+
+  /* ---- Ticket divider ---- */
+
+  .ticket-divider::before,
+  .ticket-divider::after {
+    width: 12px;
+    height: 12px;
+    top: -6px;
+  }
+
+  .ticket-divider::before {
+    left: -7px;
+  }
+
+  .ticket-divider::after {
+    right: -7px;
+  }
+
+
+  /* ---- Smaller vendor stamp ---- */
+
+  .vendor-stamp {
+    width: 26px;
+    height: 26px;
+    font-size: 0.56rem;
+  }
+}
+
+
+/* ---------------------------------------------------------------
+   VERY SMALL PHONES — 375px and below
+   --------------------------------------------------------------- */
+
+@media (max-width: 375px) {
+
+  .container,
+  .container-fluid {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  h1,
+  .h1 {
+    font-size: 1.9rem;
+  }
+
+  h2,
+  .h2 {
+    font-size: 1.6rem;
+  }
+
+  .navbar-toggler {
+    padding: 0.35rem 0.5rem;
+  }
+
+  .btn-lg {
+    font-size: 0.95rem;
+    padding: 0.65rem 0.9rem;
+  }
+}
+
+
+/* ---------------------------------------------------------------
+   LARGE DESKTOP
+   --------------------------------------------------------------- */
+
+@media (min-width: 1200px) {
+
+  .container {
+    max-width: 1140px;
+  }
+
+  h1,
+  .h1 {
+    font-size: clamp(3rem, 4vw, 4.5rem);
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+  }
+}
+
+
+/* ===================================================================
+   ACCESSIBILITY
+   =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
