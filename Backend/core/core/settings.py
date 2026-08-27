@@ -15,28 +15,29 @@ from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Load .env file for local development
-load_dotenv(BASE_DIR / ".env")
+# .env is located at:
+# Ecommerce/.env
+load_dotenv(BASE_DIR.parent / ".env")
 
 
 # ============================================================
 # SECURITY
 # ============================================================
 
-# Secret key comes from .env locally and Render Environment Variables
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 if not SECRET_KEY:
-    raise ValueError("DJANGO_SECRET_KEY environment variable is not set")
+    raise ValueError(
+        "DJANGO_SECRET_KEY environment variable is not set"
+    )
 
 
-# DEBUG
-# Local:  DJANGO_DEBUG=True
-# Render: DJANGO_DEBUG=False
-DEBUG = os.environ.get("DJANGO_DEBUG", "False").lower() == "true"
+DEBUG = os.environ.get(
+    "DJANGO_DEBUG",
+    "False"
+).lower() == "true"
 
 
-# ALLOWED HOSTS
 ALLOWED_HOSTS = [
     host.strip()
     for host in os.environ.get(
@@ -84,14 +85,18 @@ MIDDLEWARE = [
 
     "django.middleware.security.SecurityMiddleware",
 
-    # Serve static files in production
     "whitenoise.middleware.WhiteNoiseMiddleware",
 
     "django.contrib.sessions.middleware.SessionMiddleware",
+
     "django.middleware.common.CommonMiddleware",
+
     "django.middleware.csrf.CsrfViewMiddleware",
+
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+
     "django.contrib.messages.middleware.MessageMiddleware",
+
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
@@ -129,16 +134,34 @@ TEMPLATES = [
 # DATABASE
 # ============================================================
 
+DB_SSL_CA = os.environ.get("DB_SSL_CA")
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": os.environ.get("DB_NAME", "modern_ecommerce"),
-        "USER": os.environ.get("DB_USER", "root"),
-        "PASSWORD": os.environ.get("DB_PASSWORD", ""),
-        "HOST": os.environ.get("DB_HOST", "localhost"),
+
+        "NAME": os.environ.get("DB_NAME"),
+
+        "USER": os.environ.get("DB_USER"),
+
+        "PASSWORD": os.environ.get("DB_PASSWORD"),
+
+        "HOST": os.environ.get("DB_HOST"),
+
         "PORT": os.environ.get("DB_PORT", "3306"),
+
+        "OPTIONS": {
+            "charset": "utf8mb4",
+        },
     }
 }
+
+# Add SSL only when DB_SSL_CA is provided.
+# This allows local MySQL to work without SSL.
+if DB_SSL_CA:
+    DATABASES["default"]["OPTIONS"]["ssl"] = {
+        "ca": DB_SSL_CA,
+    }
 
 
 # ============================================================
@@ -195,11 +218,11 @@ STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
-# WhiteNoise configuration
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
+
     "staticfiles": {
         "BACKEND": (
             "whitenoise.storage."
@@ -220,8 +243,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # EMAIL
 # ============================================================
 
-# Local development
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = (
+    "django.core.mail.backends.console.EmailBackend"
+)
 
 
 # ============================================================
@@ -232,7 +256,7 @@ CORS_ALLOWED_ORIGINS = [
     origin.strip()
     for origin in os.environ.get(
         "CORS_ALLOWED_ORIGINS",
-        "http://localhost:5173,http://127.0.0.1:5173",
+        "http://localhost:5173",
     ).split(",")
     if origin.strip()
 ]
@@ -248,7 +272,7 @@ CSRF_TRUSTED_ORIGINS = [
     origin.strip()
     for origin in os.environ.get(
         "CSRF_TRUSTED_ORIGINS",
-        "http://localhost:5173,http://127.0.0.1:5173",
+        "http://localhost:5173",
     ).split(",")
     if origin.strip()
 ]
@@ -263,8 +287,6 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
 
-    # New endpoints are protected by default.
-    # Use permission_classes = [AllowAny] for public endpoints.
     "DEFAULT_PERMISSION_CLASSES": (
         "rest_framework.permissions.IsAuthenticated",
     ),
@@ -286,16 +308,12 @@ REST_FRAMEWORK = {
 # ============================================================
 
 SIMPLE_JWT = {
-    # Access token expires after 15 minutes
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
 
-    # Refresh token expires after 7 days
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
 
-    # Generate a new refresh token when refreshing
     "ROTATE_REFRESH_TOKENS": True,
 
-    # Blacklist the old refresh token
     "BLACKLIST_AFTER_ROTATION": True,
 
     "AUTH_HEADER_TYPES": ("Bearer",),
