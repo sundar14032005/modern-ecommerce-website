@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 // Base URL for the Django backend (uses env variable if available, else defaults to local)
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
-
+export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://modern-ecommerce-website.onrender.com/api';
 const ACCESS_TOKEN_KEY = 'nexstore_access_token';
 const REFRESH_TOKEN_KEY = 'nexstore_refresh_token';
 

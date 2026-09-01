@@ -42,7 +42,7 @@ ALLOWED_HOSTS = [
     host.strip()
     for host in os.environ.get(
         "DJANGO_ALLOWED_HOSTS",
-        "localhost,127.0.0.1",
+        "https://modern-ecommerce-website.onrender.com/",
     ).split(",")
     if host.strip()
 ]
@@ -256,7 +256,7 @@ CORS_ALLOWED_ORIGINS = [
     origin.strip()
     for origin in os.environ.get(
         "CORS_ALLOWED_ORIGINS",
-        "http://localhost:5173",
+        'https://modern-ecommerce-website-eight.vercel.app/',
     ).split(",")
     if origin.strip()
 ]
@@ -272,7 +272,7 @@ CSRF_TRUSTED_ORIGINS = [
     origin.strip()
     for origin in os.environ.get(
         "CSRF_TRUSTED_ORIGINS",
-        "http://localhost:5173",
+        "https://modern-ecommerce-website-eight.vercel.app/",
     ).split(",")
     if origin.strip()
 ]
