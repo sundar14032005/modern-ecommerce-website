@@ -42,7 +42,7 @@ ALLOWED_HOSTS = [
     host.strip()
     for host in os.environ.get(
         "DJANGO_ALLOWED_HOSTS",
-        "https://modern-ecommerce-website.onrender.com/",
+        "modern-ecommerce-website.onrender.com,localhost,127.0.0.1",
     ).split(",")
     if host.strip()
 ]
@@ -117,12 +117,17 @@ WSGI_APPLICATION = "core.wsgi.application"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
+
         "DIRS": [],
+
         "APP_DIRS": True,
+
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.request",
+
                 "django.contrib.auth.context_processors.auth",
+
                 "django.contrib.messages.context_processors.messages",
             ],
         },
@@ -135,6 +140,7 @@ TEMPLATES = [
 # ============================================================
 
 DB_SSL_CA = os.environ.get("DB_SSL_CA")
+
 
 DATABASES = {
     "default": {
@@ -156,6 +162,7 @@ DATABASES = {
     }
 }
 
+
 # Add SSL only when DB_SSL_CA is provided.
 # This allows local MySQL to work without SSL.
 if DB_SSL_CA:
@@ -175,18 +182,21 @@ AUTH_PASSWORD_VALIDATORS = [
             "UserAttributeSimilarityValidator"
         ),
     },
+
     {
         "NAME": (
             "django.contrib.auth.password_validation."
             "MinimumLengthValidator"
         ),
     },
+
     {
         "NAME": (
             "django.contrib.auth.password_validation."
             "CommonPasswordValidator"
         ),
     },
+
     {
         "NAME": (
             "django.contrib.auth.password_validation."
@@ -256,7 +266,7 @@ CORS_ALLOWED_ORIGINS = [
     origin.strip()
     for origin in os.environ.get(
         "CORS_ALLOWED_ORIGINS",
-        'https://modern-ecommerce-website-eight.vercel.app/',
+        "https://modern-ecommerce-website-eight.vercel.app",
     ).split(",")
     if origin.strip()
 ]
@@ -272,7 +282,7 @@ CSRF_TRUSTED_ORIGINS = [
     origin.strip()
     for origin in os.environ.get(
         "CSRF_TRUSTED_ORIGINS",
-        "https://modern-ecommerce-website-eight.vercel.app/",
+        "https://modern-ecommerce-website-eight.vercel.app",
     ).split(",")
     if origin.strip()
 ]
