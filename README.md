@@ -10,7 +10,7 @@ The application provides a complete online shopping experience with product brow
 
 🚀 **Frontend:** [View Live Website](YOUR_FRONTEND_URL)
 
-🔗 **Backend API:** [View Backend API](YOUR_BACKEND_URL)
+🔗 **Backend API:** [View Backend API](https://modern-ecommerce-website-q5ek.onrender.com)
 
 > Replace the above URLs with your deployed frontend and backend links.
 
