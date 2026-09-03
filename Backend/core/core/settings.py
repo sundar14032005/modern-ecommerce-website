@@ -27,23 +27,17 @@ load_dotenv(BASE_DIR.parent / ".env")
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 if not SECRET_KEY:
-    raise ValueError(
+    raise ValueError (
         "DJANGO_SECRET_KEY environment variable is not set"
     )
 
 
-DEBUG = os.environ.get(
-    "DJANGO_DEBUG",
-    "False"
-).lower() == "true"
+DEBUG = os.environ.get("DJANGO_DEBUG","").lower() == "true"
 
 
 ALLOWED_HOSTS = [
     host.strip()
-    for host in os.environ.get(
-        "DJANGO_ALLOWED_HOSTS",
-        "modern-ecommerce-website.onrender.com,localhost,127.0.0.1",
-    ).split(",")
+    for host in os.environ.get("DJANGO_ALLOWED_HOSTS","").split(",")
     if host.strip()
 ]
 
@@ -154,7 +148,7 @@ DATABASES = {
 
         "HOST": os.environ.get("DB_HOST"),
 
-        "PORT": os.environ.get("DB_PORT", "3306"),
+        "PORT": os.environ.get("DB_PORT"),
 
         "OPTIONS": {
             "charset": "utf8mb4",
@@ -264,10 +258,7 @@ EMAIL_BACKEND = (
 
 CORS_ALLOWED_ORIGINS = [
     origin.strip()
-    for origin in os.environ.get(
-        "CORS_ALLOWED_ORIGINS",
-        "https://modern-ecommerce-website-eight.vercel.app",
-    ).split(",")
+    for origin in os.environ.get("CORS_ALLOWED_ORIGINS","").split(",")
     if origin.strip()
 ]
 
@@ -280,10 +271,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
     origin.strip()
-    for origin in os.environ.get(
-        "CSRF_TRUSTED_ORIGINS",
-        "https://modern-ecommerce-website-eight.vercel.app",
-    ).split(",")
+    for origin in os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
     if origin.strip()
 ]
 
