@@ -8,7 +8,7 @@ The application provides a complete online shopping experience with product brow
 
 ## 🌐 Live Demo
 
-🚀 **Frontend:** [View Live Website](YOUR_FRONTEND_URL)
+🚀 **Frontend:** [View Live Website](https://modern-ecommerce-website-eight.vercel.app/catalog)
 
 🔗 **Backend API:** [View Backend API](https://modern-ecommerce-website-q5ek.onrender.com)
 
